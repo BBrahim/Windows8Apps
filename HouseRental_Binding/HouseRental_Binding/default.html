@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>HouseRental</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0.RC/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0.RC/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0.RC/js/ui.js"></script>
+
+    <!-- HouseRental references -->
+    <link href="/css/default.css" rel="stylesheet" />
+    <!-- 
+        Include the JavaScript files which initializes
+        the data structure and the initial data
+    -->
+    <script src="/js/data.js"></script>
+
+    <script src="/js/default.js"></script>
+</head>
+<body>
+    <div id="mainContent">
+        <!-- HOUSE 1 -->
+        <div id="topLeftContainer" class="gridLeft">
+            <h2 data-win-bind="innerText: Data.city1"></h2>
+            <div class="contentContainer">
+                <img data-win-bind="src: Data.imageSource1" />
+                <div class="price">
+                    <h4 data-win-bind="innerText: Data.price1"></h4>
+                </div>
+            </div>
+        </div>
+
+        <!-- HOUSE 2 -->
+        <div id="bottomLeftContainer" class="gridLeft">
+            <h2 data-win-bind="innerText: Data.city2"></h2>
+            <div class="contentContainer">
+                <img data-win-bind="src: Data.imageSource2" />
+                <div class="price">
+                    <h4 data-win-bind="innerText: Data.price2"></h4>
+                </div>
+            </div>
+        </div>
+
+        <!-- HOUSE 3 -->
+        <div id="topRightContainer" class="gridRight">
+            <h2 data-win-bind="innerText: Data.city3"></h2>
+            <div class="contentContainer">
+                <img data-win-bind="src: Data.imageSource3" />
+                <div class="price">
+                    <h4 data-win-bind="innerText: Data.price3"></h4>
+                </div>
+            </div>
+        </div>
+
+        <!-- HOUSE 4 -->
+        <div id="bottomRightContainer" class="gridRight">
+            <h2 data-win-bind="innerText: Data.city4"></h2>
+            <div class="contentContainer">
+                <img data-win-bind="src: Data.imageSource4" />
+                <div class="price">
+                    <h4 data-win-bind="innerText: Data.price4"></h4>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
