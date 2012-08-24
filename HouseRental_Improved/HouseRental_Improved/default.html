@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>HouseRental_Improved</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <script src="js/house.js"></script>
+    <script src="js/viewModel.js"></script>
+    <!-- HouseRental_Improved references -->
+    <link href="/css/default.css" rel="stylesheet" />
+    <script src="/js/default.js"></script>
+</head>
+<body>
+
+    <!-- TEMPLATE FOR LIST VIEW -->
+    <div id="lstHouseTemplate" data-win-control="WinJS.Binding.Template">
+        <div class="house">
+            <img src="#" data-win-bind="src: ImageSource" />
+            <div class="detail">
+                <h5 data-win-bind="innerText:Info"></h5>
+            </div>
+        </div>
+    </div>
+
+    <!-- LIST VIEW -->
+    <div id="lstHouse" data-win-control="WinJS.UI.ListView"
+        data-win-options="{
+        itemDataSource : HouseRental.ApplicationData.data.dataSource, 
+        itemTemplate : lstHouseTemplate,
+        onselectionchanged : HouseRental.Handlers.houseSelectionChanged }">
+    </div>
+    
+</body>
+</html>
