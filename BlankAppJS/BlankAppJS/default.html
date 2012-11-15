@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>BlankAppJS</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-light.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <!-- BlankAppJS references -->
+    <link href="/css/default.css" rel="stylesheet" />
+    <script src="/js/default.js"></script>
+</head>
+<body>
+    <h1 class="headerClass">Hello WinJS World!</h1>
+    <div class="mainContent">
+        <p>What is your name?</p>
+        <input type="text" id="txtName" />
+        <button id="btnSayHello">Say Hello...</button>
+        <div id="divGreeting"></div>
+        <label for="ratingControl">Please rate this greeting:</label>
+        <div data-win-control="WinJS.UI.Rating" id="ratingControl">
+        </div>
+        <div id="rating" ></div>
+
+    </div>
+</body>
+</html>
