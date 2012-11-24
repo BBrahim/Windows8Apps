@@ -45,6 +45,7 @@
                 buildAnimal: function (model) {
 
                     var newAnimal = new Zoo.Animal();
+
                     if (model.hasOwnProperty("name")) {
                         newAnimal.setName(model.name);
                     }
@@ -57,31 +58,31 @@
                         newAnimal.setHoursSinceLastFeed(model.hoursSinceLastFeed);
                     }
 
+                    //return a Bindable object
                     return new WinJS.Binding.as(newAnimal);
                 },
 
                 loadZoo: function (uri) {
                     //IMPORTANT TO RETURN THE PROMISE
-                    return Windows.Storage.StorageFile.getFileFromApplicationUriAsync(uri).then(
-                         function (file) {
+                    return Windows.Storage.StorageFile.getFileFromApplicationUriAsync(uri)
+                        .then(function (file) {
+                            return Windows.Storage.FileIO.readTextAsync(file)
+                                .then(function (textFromFile) {
+                                    var myParsedJsonData = JSON.parse(textFromFile);
 
-                             return Windows.Storage.FileIO.readTextAsync(file).then(
-                                 function (textFromFile) {
-                                     var myParsedJsonData = JSON.parse(textFromFile);
+                                    //this will store all the new animals transferred to zoo
+                                    var zoo = new Array();
 
-                                     //this will store all the new animals added to zoo
-                                     var zoo = new Array();
+                                    if (myParsedJsonData) {
+                                        myParsedJsonData.forEach(function (newObject) {
+                                            var newAnimal = Zoo.Animal.buildAnimal(newObject);
+                                            zoo.push(newAnimal);
+                                        });
+                                    }
 
-                                     if (myParsedJsonData) {
-
-                                         myParsedJsonData.forEach(function (newObject) {
-                                             var newAnimal = Zoo.Animal.buildAnimal(newObject);
-                                             zoo.push(newAnimal);
-                                         });
-                                     }
-                                     return zoo;
-                                 });
-                         });
+                                    return zoo;
+                                });
+                        });
                 }
             })//end  WinJS.Class.define
     });
