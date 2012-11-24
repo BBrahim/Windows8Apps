@@ -29,7 +29,8 @@
                 getHoursSinceLastFeed: function () { return this._hoursSinceLastFeed; },
                 setHoursSinceLastFeed: function (newValue) {
                     this._hoursSinceLastFeed = newValue;
-
+                    //if it has been 4 hours since last feed
+                    //the animal is hungry for sure :)
                     if (newValue > 4) {
                         this._isHungry = true;
                     }
